@@ -1,121 +1,166 @@
 [
   {
-    "authors": "Matt, Justin; Flanagan, Harold; Chao, Haiyang",
-    "title": "Evaluation and Analysis of ArduPilot Automatic Tuning Algorithm for the Roll Tracking Controller of a Small UAS",
-    "venue": "AIAA Scitech 2021 Forum",
-    "year": 2021,
-    "pages": "0016"
-  },
-  {
-    "authors": "Matt, Justin J; Hagerott, Steven G; Svoboda, Benjamin C; Chao, Haiyang; Flanagan, Harold P",
-    "title": "Frequency Domain System Identification of a Small Flying-Wing UAS",
-    "venue": "AIAA SCITECH 2022 Forum",
-    "year": 2022,
-    "pages": "2407"
-  },
-  {
-    "authors": "Lin, Zhenghao; Matt, Justin; Chao, Haiyang; Zheng, Charlie; Ewing, Mark",
-    "title": "Wake Vortex Encounter Modeling and Simulation for Small Fixed-Wing UAS with Inner Loop Attitude Controller",
-    "venue": "AIAA AVIATION 2022 Forum",
-    "year": 2022,
-    "pages": "4066"
-  },
-  {
     "authors": "Rahmani, Salman K; Wang, Zhi J; Matt, Justin; Chao, Haiyang; Zheng, Charlie",
     "title": "Comparison of low-and high-order CFD based estimates of forces, moments and aerodynamic coefficients with UAS flight test data",
+    "type": "conference",
     "venue": "AIAA AVIATION 2022 Forum",
     "year": 2022,
-    "pages": "4065"
-  },
-  {
-    "authors": "Matt, Justin; Chao, Haiyang; Shawon, Mosarruf H; Hagerott, Steven G",
-    "title": "Longitudinal System Identification for a Small Flying-wing UAS",
-    "venue": "AIAA SCITECH 2023 Forum",
-    "year": 2023,
-    "pages": "0628"
-  },
-  {
-    "authors": "Matt, Justin; Chao, Haiyang",
-    "title": "Efficient Frequency Response Identification for Small Fixed-Wing UAS Using Closed-Loop Flight Data",
-    "venue": "AIAA SCITECH 2023 Forum",
-    "year": 2023,
-    "pages": "0629"
-  },
-  {
-    "authors": "Matt, Justin; Chao, Haiyang; Lin, Zhenghao; Zheng, Charlie",
-    "title": "Simplified Wake Vortex Encounter Modeling and Inner Loop Controller Analysis for Small UAS",
-    "venue": "AIAA SCITECH 2023 Forum",
-    "year": 2023,
-    "pages": "0801"
-  },
-  {
-    "authors": "Altamirano, George; Matt, Justin; Foster, John; Suh, Peter; Hanson, Curtis; Malpica, Carlos; Schuet, Stefan",
-    "title": "Flying Qualities Analysis and Piloted Simulation Testing of a Lift+Cruise Vehicle with Propulsion Failures in Hover and Low-Speed Conditions",
-    "venue": "Vertical Flight Society 79th Annual Forum & Technology Display",
-    "year": 2023
-  },
-  {
-    "authors": "Altamirano, George; Matt, Justin J; Busan, Ronald C; Foster, John V",
-    "title": "Wind Tunnel Testing of Static Aerodynamic and Power Consumption Characteristics of an Octocopter",
-    "venue": "AIAA AVIATION 2023 Forum",
-    "year": 2023,
-    "pages": "3967"
-  },
-  {
-    "authors": "Moore, Andrew J; Young, Steven; Altamirano, George; Ancel, Ersin; Darafsheh, Kaveh; Dill, Evan; Foster, John; Quach, Cuong; Mackenzie, Anne; Matt, Justin",
-    "title": "Testing of Advanced Capabilities to Enable In-time Safety Management and Assurance for Future Flight Operations",
-    "venue": "",
-    "year": 2024
+    "doi": "https://doi.org/10.2514/6.2022-4065"
   },
   {
     "authors": "Matt, Justin J",
     "title": "Comparison of Multisine Peak Factor Minimization Algorithms for Aircraft System Identification",
-    "venue": "",
-    "year": 2024
+    "type": "technical report",
+    "venue": "NASA TM-20240009677",
+    "year": 2024,
+    "doi": "https://ntrs.nasa.gov/citations/20240009677",
+    "pdf": "comparison_of_multisine_peak_factor_minimization_algorithms.pdf"
+  },
+  {
+    "authors": "Corrigan, Patrick E; Matt, Justin J; Asper, Garrett D",
+    "title": "Design and Testing of an Octocopter for Aerodynamic and Power Consumption Modeling",
+    "type": "technical report",
+    "venue": "NASA TM-20240013453",
+    "year": 2025,
+    "doi": "https://ntrs.nasa.gov/citations/20240013453",
+    "pdf": "design_and_testing_of_an_octocopter.pdf"
+  },
+  {
+    "authors": "Matt, Justin J; Altamirano, George V; Young, Steven; Barnes, James R; Zheng, Tobin",
+    "title": "Development of a Flight Performance Assessment Service for Small Multirotor Aircraft",
+    "type": "conference",
+    "venue": "AIAA AVIATION FORUM AND ASCEND 2025",
+    "year": 2025,
+    "doi": "https://doi.org/10.2514/6.2025-3885",
+    "preprint": "https://ntrs.nasa.gov/citations/20250005775",
+    "pdf": "development_of_FPAS_service.pdf"
+  },
+  {
+    "authors": "Matt, Justin; Chao, Haiyang",
+    "title": "Efficient Frequency Response Identification for Small Fixed-Wing UAS Using Closed-Loop Flight Data",
+    "type": "conference",
+    "venue": "AIAA SCITECH 2023 Forum",
+    "year": 2023,
+    "doi": "https://doi.org/10.2514/6.2023-0629",
+    "preprint": "https://doi.org/10.31224/4461",
+    "pdf": "efficient_FRF_identification.pdf"
+  },
+  {
+    "authors": "Matt, Justin; Flanagan, Harold; Chao, Haiyang",
+    "title": "Evaluation and Analysis of ArduPilot Automatic Tuning Algorithm for the Roll Tracking Controller of a Small UAS",
+    "type": "conference",
+    "venue": "AIAA Scitech 2021 Forum",
+    "year": 2021,
+    "doi": "https://doi.org/10.2514/6.2021-0016",
+    "preprint": "https://doi.org/10.31224/4462",
+    "pdf": "evaluation_of_ardupilot_autotune.pdf"
+  },
+  {
+    "authors": "Altamirano, George; Matt, Justin; Foster, John; Suh, Peter; Hanson, Curtis; Malpica, Carlos; Schuet, Stefan",
+    "title": "Flying Qualities Analysis and Piloted Simulation Testing of a Lift+Cruise Vehicle with Propulsion Failures in Hover and Low-Speed Conditions",
+    "type": "conference",
+    "venue": "Vertical Flight Society's 79th Annual Forum & Technology Display",
+    "year": 2023,
+    "doi": "https://doi.org/10.4050/F-0079-2023-18078",
+    "preprint": "https://ntrs.nasa.gov/citations/20230004292",
+    "pdf": "flying_qualities_analysis_and_piloted_simulation_for_LpC_with_propulsion_failures.pdf"
+  },
+  {
+    "authors": "Matt, Justin J; Hagerott, Steven G; Svoboda, Benjamin C; Chao, Haiyang; Flanagan, Harold P",
+    "title": "Frequency Domain System Identification of a Small Flying-Wing UAS",
+    "type": "conference",
+    "venue": "AIAA SCITECH 2022 Forum",
+    "year": 2022,
+    "doi": "https://doi.org/10.2514/6.2022-2407",
+    "preprint": "https://doi.org/10.31224/4464",
+    "pdf": "frequency_domain_sysid_for_small_flying_wing.pdf"
+  },
+  {
+    "authors": "Matt, Justin; Chao, Haiyang; Shawon, Mosarruf H; Hagerott, Steven G",
+    "title": "Longitudinal System Identification for a Small Flying-wing UAS",
+    "type": "conference",
+    "venue": "AIAA SCITECH 2023 Forum",
+    "year": 2023,
+    "doi": "https://doi.org/10.2514/6.2023-0628",
+    "preprint": "https://doi.org/10.31224/4463",
+    "pdf": "longitudinal_sysid_for_small_flying_wing.pdf"
+  },
+  {
+    "authors": "Mosarruf, Mosarruf H; Rhudy, Matthew; Matt, Justin J; Wu, Huixuan; Chao, Haiyang",
+    "title": "Sensing and Estimation of Fire-Induced Wind Field using Small UAS",
+    "type": "conference",
+    "venue": "AIAA SciTech Forum 2026",
+    "year": 2026,
+    "doi": "https://doi.org/10.2514/6.2026-2286"
+  },
+  {
+    "authors": "Matt, Justin; Chao, Haiyang; Lin, Zhenghao; Zheng, Charlie",
+    "title": "Simplified Wake Vortex Encounter Modeling and Inner Loop Controller Analysis for Small UAS",
+    "type": "conference",
+    "venue": "AIAA SCITECH 2023 Forum",
+    "year": 2023,
+    "doi": "https://doi.org/10.2514/6.2023-0801",
+    "preprint": "https://doi.org/10.31224/4460",
+    "pdf": "simplified_wake_vortex_encounter_modeling.pdf"
   },
   {
     "authors": "Altamirano, George; Matt, Justin; Farrell, Stephen; Palazzo, Anthony",
     "title": "Static and Forced Oscillation Wind Tunnel Tests of a Tandem Propeller Configuration",
+    "type": "conference",
     "venue": "AIAA SCITECH 2025 Forum",
     "year": 2025,
-    "pages": "0664"
+    "doi": "https://doi.org/10.2514/6.2025-0664",
+    "preprint": "https://ntrs.nasa.gov/citations/20240015234",
+    "pdf": "wind_tunel_test_of_tandem_propellers.pdf"
   },
   {
     "authors": "Matt, Justin J; Chao, Haiyang; Shawon, Mosarruf H; Svoboda, Benjamin C; Hagerott, Steven G",
     "title": "System identification for small flying-wing unmanned aircraft using open-loop and closed-loop flight data",
+    "type": "journal",
     "venue": "Journal of Aircraft",
     "volume": "62",
     "number": "4",
     "pages": "961-977",
     "year": 2025,
-    "publisher": "American Institute of Aeronautics and Astronautics"
-  },
-  {
-    "authors": "Corrigan, Patrick E; Matt, Justin J; Asper, Garrett D",
-    "title": "Design and Testing of an Octocopter for Aerodynamic and Power Consumption Modeling",
-    "venue": "NASA",
-    "year": 2025
-  },
-  {
-    "authors": "Matt, Justin J; Altamirano, George V; Young, Steven; Barnes, James R; Zheng, Tobin",
-    "title": "Development of a Flight Performance Assessment Service for Small Multirotor Aircraft",
-    "venue": "AIAA AVIATION FORUM AND ASCEND 2025",
-    "year": 2025,
-    "pages": "3885"
+    "doi": "https://doi.org/10.2514/1.C038147",
+    "preprint": "https://doi.org/10.31224/4308",
+    "pdf": "sysid_for_small_flying_wing_using_open_and_closed_loop_data.pdf"
   },
   {
     "authors": "Matt, Justin J; Altamirano, George V",
     "title": "System Identification of an Octocopter in Hover Using Full-Harmonic Orthogonal Multisine Inputs",
+    "type": "journal",
     "venue": "Journal of Aircraft",
-    "pages": "1-19",
+    "volume": "Articles in Advance",
     "year": 2026,
-    "publisher": "American Institute of Aeronautics and Astronautics"
+    "doi": "https://doi.org/10.2514/1.C038636",
+    "preprint": "https://ntrs.nasa.gov/citations/20250010439",
+    "pdf": "sysid_of_an_octocopter_in_hover_using_fullharmonic_orthogonal_multisines.pdf"
   },
   {
-    "authors": "Shawon, Mosarruf Hossain; Rhudy, Matthew B; Matt, Justin; Wu, Huixuan; Chao, Haiyang",
-    "title": "Sensing and Estimation of Fire-Induced Wind Field using Small UAS",
-    "venue": "AIAA SCITECH 2026 Forum",
-    "pages": "2286",
-    "year": 2026
+    "authors": "Moore, Andrew J; Young, Steven; Altamirano, George; Ancel, Ersin; Darafsheh, Kaveh; Dill, Evan; Foster, John; Quach, Cuong; Mackenzie, Anne; Matt, Justin",
+    "title": "Testing of Advanced Capabilities to Enable In-time Safety Management and Assurance for Future Flight Operations",
+    "type": "technical report",
+    "venue": "NASA TM-20230018665",
+    "year": 2024,
+    "doi": "https://ntrs.nasa.gov/citations/20230018665"
+  },
+  {
+    "authors": "Lin, Zhenghao; Matt, Justin; Chao, Haiyang; Zheng, Charlie; Ewing, Mark",
+    "title": "Wake Vortex Encounter Modeling and Simulation for Small Fixed-Wing UAS with Inner Loop Attitude Controller",
+    "type": "conference",
+    "venue": "AIAA AVIATION 2022 Forum",
+    "year": 2022,
+    "doi": "https://doi.org/10.2514/6.2022-4066"
+  },
+  {
+    "authors": "Altamirano, George; Matt, Justin J; Busan, Ronald C; Foster, John V",
+    "title": "Wind Tunnel Testing of Static Aerodynamic and Power Consumption Characteristics of an Octocopter",
+    "type": "conference",
+    "venue": "AIAA AVIATION 2023 Forum",
+    "year": 2023,
+    "doi": "https://doi.org/10.2514/6.2023-3967",
+    "preprint": "https://ntrs.nasa.gov/citations/20230007169",
+    "pdf": "wind_tunnel_testing_of_octocopter.pdf"
   }
 ]

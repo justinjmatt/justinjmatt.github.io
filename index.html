@@ -100,12 +100,22 @@
 <script>
 let publications = [];
 
-fetch("publications.json")
-  .then(res => res.json())
-  .then(data => {
-    publications = data;
+<script>
+let publications = [];
+
+async function loadData() {
+  try {
+    const res = await fetch("./publications.json", { cache: "no-store" });
+    publications = await res.json();
     render();
-  });
+  } catch (err) {
+    document.getElementById("list").innerHTML =
+      "<p style='color:red;'>Failed to load publications.json</p>";
+    console.error(err);
+  }
+}
+
+loadData();
 
 function classifyVenue(v) {
   if (!v) return "other";

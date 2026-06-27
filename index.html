@@ -1,49 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Justin James Matt</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 80px auto;
+      max-width: 900px;
+      margin: 60px auto;
       padding: 0 20px;
       line-height: 1.6;
       color: #111;
     }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+
+    h1 { margin-bottom: 5px; }
+    h2 { margin-top: 0; color: #555; font-weight: normal; }
+
+    .controls {
+      margin: 30px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
     }
-    h2 {
-      font-size: 20px;
-      font-weight: normal;
+
+    select, button {
+      padding: 6px 10px;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+
+    .pub {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .title {
+      font-weight: bold;
+    }
+
+    .meta {
       color: #555;
-      margin-top: 0;
+      font-size: 14px;
     }
-    .section {
-      margin-top: 40px;
-    }
-    a {
-      color: #0366d6;
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 2px 6px;
+      background: #eee;
+      border-radius: 4px;
+      margin-left: 5px;
     }
   </style>
 </head>
+
 <body>
 
-  <h1>Justin James Matt</h1>
-  <h2>Research Scientist</h2>
+<h1>Justin James Matt</h1>
+<h2>Research Scientist</h2>
 
-  <div class="section">
-    <h3>List of Publications</h3>
-    <p>
-      <a href="https://www.researchgate.net/profile/Justin-Matt" target="_blank">
-        ResearchGate Profile
-      </a>
-    </p>
+<div class="controls">
+  <div>
+    <strong>Sort by:</strong>
+    <select id="sortSelect">
+      <option value="year-desc">Year (new → old)</option>
+      <option value="year-asc">Year (old → new)</option>
+      <option value="alpha-asc">Author (A → Z)</option>
+      <option value="alpha-desc">Author (Z → A)</option>
+    </select>
   </div>
+
+  <div>
+    <strong>Filter type:</strong>
+    <select id="typeFilter">
+      <option value="all">All</option>
+      <option value="journal">Journal</option>
+      <option value="conference">Conference</option>
+      <option value="other">Other</option>
+    </select>
+
+    <strong>Authorship:</strong>
+    <select id="authorFilter">
+      <option value="all">All papers</option>
+      <option value="first">First author only</option>
+      <option value="not-first">Not first author</option>
+    </select>
+
+    <button onclick="render()">Apply</button>
+  </div>
+</div>
+
+<h3>Publications</h3>
+<div id="list"></div>
+
+<script>
+let publications = [];
+
+fetch("publications.json")
+  .then(res => res.json())
+  .then(data => {
+    publications = data;
+    render();
+  });
+
+function classifyVenue(v) {
+  if (!v) return "other";
+  if (v.toLowerCase().includes("journal")) return "journal";
+  if (v.toLowerCase().includes("forum") || v.toLowerCase().includes("aiaa")) return "conference";
+  if (v.toLowerCase().includes("nasa")) return "other";
+  return "conference";
+}
+
+function isFirstAuthor(authors) {
+  if (!authors) return false;
+  return authors.split(";")[0].toLowerCase().includes("matt, justin");
+}
+
+function getSortValue(p, mode) {
+  switch (mode) {
+    case "year-desc": return -p.year;
+    case "year-asc": return p.year;
+    case "alpha-asc": return p.authors;
+    case "alpha-desc": return p.authors;
+  }
+}
+
+function render() {
+  const sortMode = document.getElementById("sortSelect").value;
+  const typeFilter = document.getElementById("typeFilter").value;
+  const authorFilter = document.getElementById("authorFilter").value;
+
+  let list = [...publications];
+
+  // filter type
+  list = list.filter(p => {
+    const type = classifyVenue(p.venue);
+    return typeFilter === "all" || type === typeFilter;
+  });
+
+  // filter author
+  list = list.filter(p => {
+    const first = isFirstAuthor(p.authors);
+    if (authorFilter === "first") return first;
+    if (authorFilter === "not-first") return !first;
+    return true;
+  });
+
+  // sort
+  list.sort((a, b) => {
+    if (sortMode === "year-desc") return b.year - a.year;
+    if (sortMode === "year-asc") return a.year - b.year;
+    if (sortMode === "alpha-asc") return a.authors.localeCompare(b.authors);
+    if (sortMode === "alpha-desc") return b.authors.localeCompare(a.authors);
+    return 0;
+  });
+
+  const container = document.getElementById("list");
+  container.innerHTML = "";
+
+  list.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "pub";
+
+    const type = classifyVenue(p.venue);
+
+    div.innerHTML = `
+      <div class="title">${p.title}</div>
+      <div class="meta">
+        ${p.authors}<br/>
+        ${p.venue || ""} ${p.year ? "(" + p.year + ")" : ""}
+        <span class="tag">${type}</span>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+}
+</script>
 
 </body>
 </html>

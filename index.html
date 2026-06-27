@@ -3,96 +3,304 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Justin James Matt</title>
+  <title>Justin J. Matt</title>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.6;
-      color: #111;
+    :root {
+      --navy: #1a2a4a;
+      --slate: #3d5270;
+      --accent: #1d6fa4;
+      --light-rule: #dde3ec;
+      --text: #1a1a1a;
+      --muted: #556070;
+      --bg: #f7f8fa;
     }
 
-    h1 { margin-bottom: 5px; }
-    h2 { margin-top: 0; color: #555; font-weight: normal; }
+    * { box-sizing: border-box; }
 
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      line-height: 1.65;
+      color: var(--text);
+      background: #fff;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      padding: 48px 0 36px;
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .headshot-wrap {
+      flex-shrink: 0;
+    }
+
+    .headshot {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #c8d3e0;
+      display: block;
+      border: 3px solid var(--light-rule);
+    }
+
+    /* SVG placeholder person silhouette */
+    .headshot-placeholder {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #c8d3e0;
+      border: 3px solid var(--light-rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .headshot-placeholder svg {
+      width: 70px;
+      height: 70px;
+      opacity: 0.45;
+    }
+
+    .header-text {
+      flex: 1;
+      padding-left: 4px;
+    }
+
+    .header-text h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--navy);
+      margin: 0 0 2px;
+    }
+
+    .header-text .title-line {
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+      color: var(--slate);
+      font-weight: normal;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 16px;
+    }
+
+    .bio {
+      font-size: 0.93rem;
+      color: #333;
+      line-height: 1.7;
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+      margin: 0 0 16px;
+      max-width: 580px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .contact-row a,
+    .contact-row span {
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .contact-row a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-row .cv-btn {
+      background: var(--navy);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+
+    .contact-row .cv-btn:hover {
+      background: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── CONTROLS ── */
     .controls {
       margin: 30px 0;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fafafa;
+      padding: 14px 16px;
+      border: 1px solid var(--light-rule);
+      border-radius: 6px;
+      background: var(--bg);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
     }
 
+    .controls > div + div { margin-top: 10px; }
+
     select, button {
-      padding: 6px 10px;
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      padding: 5px 10px;
       margin-right: 10px;
-      margin-top: 5px;
+      margin-top: 4px;
+      border: 1px solid #b0bbc8;
+      border-radius: 4px;
+      background: #fff;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    button {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+      transition: background 0.2s;
+    }
+
+    button:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* ── PUBLICATIONS ── */
+    h3 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1px solid var(--light-rule);
+      padding-bottom: 6px;
+      margin-top: 32px;
     }
 
     .pub {
       margin-bottom: 18px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid #eee;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #eef0f3;
     }
 
-    .title {
+    .pub-title {
       font-weight: bold;
+      font-size: 0.97rem;
+      color: var(--text);
+      margin-bottom: 4px;
     }
 
     .meta {
-      color: #555;
-      font-size: 14px;
-      margin-bottom: 8px;
+      font-family: Arial, sans-serif;
+      color: var(--muted);
+      font-size: 0.83rem;
+      margin-bottom: 7px;
     }
 
     .tag {
       display: inline-block;
-      font-size: 12px;
-      padding: 2px 6px;
-      background: #eee;
-      border-radius: 4px;
-      margin-left: 5px;
+      font-size: 11px;
+      padding: 2px 7px;
+      background: #e2e8f0;
+      color: var(--slate);
+      border-radius: 3px;
+      margin-left: 6px;
       text-transform: capitalize;
+      font-family: Arial, sans-serif;
     }
 
     .links a {
       display: inline-block;
-      font-size: 13px;
-      margin-right: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin-right: 8px;
       margin-top: 4px;
-      color: #0056b3;
+      color: var(--accent);
       text-decoration: none;
-      border: 1px solid #0056b3;
-      padding: 3px 8px;
-      border-radius: 4px;
-      transition: background 0.2s, color 0.2s;
+      border: 1px solid var(--accent);
+      padding: 3px 9px;
+      border-radius: 3px;
+      transition: background 0.15s, color 0.15s;
     }
 
     .links a:hover {
-      background: #0056b3;
+      background: var(--accent);
       color: #fff;
     }
-    
+
     .links a.pdf-link {
-      background: #fdfdfd;
-      border-color: #d9534f;
-      color: #d9534f;
+      border-color: #c0392b;
+      color: #c0392b;
     }
+
     .links a.pdf-link:hover {
-      background: #d9534f;
+      background: #c0392b;
       color: #fff;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      header { flex-direction: column; gap: 18px; }
+      .bio { max-width: 100%; }
     }
   </style>
 </head>
 
 <body>
 
-<h1>Justin James Matt</h1>
-<h2>Research Scientist</h2>
+<!-- ── HEADER ── -->
+<header>
+  <div class="headshot-wrap">
+    <img src="IMG_5874_SnapseedCopy.jpeg" class="headshot" alt="Justin J. Matt">
+  </div>
 
+  <div class="header-text">
+    <h1>Justin J. Matt</h1>
+    <p class="title-line">Research Scientist &middot; NASA Langley Research Center</p>
+
+    <p class="bio">
+      Justin J. Matt is a researcher at NASA Langley Research Center in the Vehicle
+      Dynamics and Control Branch. He received his B.S. and M.S. in aerospace
+      engineering from the University of Kansas in 2020 and 2022. His research
+      interests include system identification applied to aerospace vehicles, flight
+      testing and wind tunnel testing, flight dynamics modeling, flight controls and
+      handling qualities, and estimation.
+    </p>
+
+    <div class="contact-row">
+      <a href="mailto:justinjmatt@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm2 0l6 5 6-5H4zm0 2.236V16h12V6.236l-6 5-6-5z"/></svg>
+        justinjmatt@gmail.com
+      </a>
+      <a href="mailto:justin.j.matt@nasa.gov">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M2 4a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V4zm2 0l6 5 6-5H4zm0 2.236V16h12V6.236l-6 5-6-5z"/></svg>
+        justin.j.matt@nasa.gov
+      </a>
+      <a href="https://www.linkedin.com/in/justin-j-matt-68068b163" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M17 2H3a1 1 0 00-1 1v14a1 1 0 001 1h14a1 1 0 001-1V3a1 1 0 00-1-1zM7 16H4.5V8H7v8zm-1.25-9.13a1.44 1.44 0 110-2.88 1.44 1.44 0 010 2.88zM16 16h-2.5v-3.9c0-.93-.02-2.13-1.3-2.13-1.3 0-1.5 1.01-1.5 2.06V16H8V8h2.4v1.09h.03c.33-.63 1.15-1.3 2.37-1.3 2.54 0 3 1.67 3 3.84V16z"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://scholar.google.com" target="_blank" rel="noopener">
+        <!-- scholar-style icon -->
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2L2 7l8 5 8-5-8-5zM2 12l8 5 8-5M2 9.5l8 5 8-5"/></svg>
+        Google Scholar
+      </a>
+      <a href="cv.pdf" class="cv-btn">CV / Résumé ↓</a>
+    </div>
+  </div>
+</header>
+
+<!-- ── CONTROLS ── -->
 <div class="controls">
   <div>
     <strong>Sort by:</strong>
@@ -125,7 +333,11 @@
 </div>
 
 <h3>Publications</h3>
-<div id="list"></div>
+<div id="list">
+  <p style="font-family:Arial,sans-serif;color:#888;font-size:0.88rem;">
+    Loading publications…
+  </p>
+</div>
 
 <script>
 let publications = [];
@@ -137,7 +349,7 @@ async function loadData() {
     render();
   } catch (err) {
     document.getElementById("list").innerHTML =
-      "<p style='color:red;'>Failed to load publications.json :(</p>";
+      "<p style='color:#c0392b;font-family:Arial,sans-serif;font-size:0.88rem;'>Failed to load publications.json — make sure the file is in the same directory.</p>";
     console.error(err);
   }
 }
@@ -150,19 +362,17 @@ function isFirstAuthor(authors) {
 }
 
 function render() {
-  const sortMode = document.getElementById("sortSelect").value;
-  const typeFilter = document.getElementById("typeFilter").value;
+  const sortMode  = document.getElementById("sortSelect").value;
+  const typeFilter   = document.getElementById("typeFilter").value;
   const authorFilter = document.getElementById("authorFilter").value;
 
   let list = [...publications];
 
-  // filter type (using the new "type" field from the metadata)
   list = list.filter(p => {
     const type = p.type ? p.type.toLowerCase() : "other";
     return typeFilter === "all" || type === typeFilter;
   });
 
-  // filter author
   list = list.filter(p => {
     const first = isFirstAuthor(p.authors);
     if (authorFilter === "first") return first;
@@ -170,10 +380,9 @@ function render() {
     return true;
   });
 
-  // sort
   list.sort((a, b) => {
     if (sortMode === "year-desc") return b.year - a.year;
-    if (sortMode === "year-asc") return a.year - b.year;
+    if (sortMode === "year-asc")  return a.year - b.year;
     if (sortMode === "alpha-asc") return a.authors.localeCompare(b.authors);
     if (sortMode === "alpha-desc") return b.authors.localeCompare(a.authors);
     return 0;
@@ -182,38 +391,34 @@ function render() {
   const container = document.getElementById("list");
   container.innerHTML = "";
 
+  if (list.length === 0) {
+    container.innerHTML = "<p style='font-family:Arial,sans-serif;color:#888;font-size:0.88rem;'>No publications match the current filters.</p>";
+    return;
+  }
+
   list.forEach(p => {
     const div = document.createElement("div");
     div.className = "pub";
 
-    // Format extra venue info like volume, number, pages
     let venueDetails = p.venue || "";
     if (p.volume) venueDetails += `, Vol. ${p.volume}`;
     if (p.number) venueDetails += `, No. ${p.number}`;
-    if (p.pages) venueDetails += `, pp. ${p.pages}`;
+    if (p.pages)  venueDetails += `, pp. ${p.pages}`;
 
-    // Build the Links HTML
     let linksHtml = "";
     if (p.pdf || p.doi || p.preprint) {
-      linksHtml += `<div class="links">`;
-      if (p.pdf) {
-        // Appends "pdfs/" folder path to the filename from JSON
-        linksHtml += `<a href="pdfs/${p.pdf}" target="_blank" class="pdf-link">PDF (Accepted Manuscript)</a>`;
-      }
-      if (p.doi) {
-        linksHtml += `<a href="${p.doi}" target="_blank">Official Publication</a>`;
-      }
-      if (p.preprint) {
-        linksHtml += `<a href="${p.preprint}" target="_blank">Pre-print</a>`;
-      }
+      linksHtml = `<div class="links">`;
+      if (p.pdf)      linksHtml += `<a href="pdfs/${p.pdf}" target="_blank" class="pdf-link">PDF (Accepted Manuscript)</a>`;
+      if (p.doi)      linksHtml += `<a href="${p.doi}" target="_blank">Official Publication</a>`;
+      if (p.preprint) linksHtml += `<a href="${p.preprint}" target="_blank">Pre-print</a>`;
       linksHtml += `</div>`;
     }
 
     div.innerHTML = `
-      <div class="title">${p.title}</div>
+      <div class="pub-title">${p.title}</div>
       <div class="meta">
         ${p.authors}<br/>
-        ${venueDetails} ${p.year ? "(" + p.year + ")" : ""}
+        ${venueDetails}${p.year ? " (" + p.year + ")" : ""}
         <span class="tag">${p.type || "Other"}</span>
       </div>
       ${linksHtml}

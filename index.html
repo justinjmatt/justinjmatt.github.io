@@ -14,6 +14,7 @@
       --text: #1a1a1a;
       --muted: #556070;
       --bg: #f7f8fa;
+      --gold: #b8860b;
     }
 
     * { box-sizing: border-box; }
@@ -37,9 +38,7 @@
       border-bottom: 2px solid var(--navy);
     }
 
-    .headshot-wrap {
-      flex-shrink: 0;
-    }
+    .headshot-wrap { flex-shrink: 0; }
 
     .headshot {
       width: 110px;
@@ -51,7 +50,6 @@
       border: 3px solid var(--light-rule);
     }
 
-    /* SVG placeholder person silhouette */
     .headshot-placeholder {
       width: 110px;
       height: 110px;
@@ -63,17 +61,9 @@
       justify-content: center;
       overflow: hidden;
     }
+    .headshot-placeholder svg { width: 70px; height: 70px; opacity: 0.45; }
 
-    .headshot-placeholder svg {
-      width: 70px;
-      height: 70px;
-      opacity: 0.45;
-    }
-
-    .header-text {
-      flex: 1;
-      padding-left: 4px;
-    }
+    .header-text { flex: 1; padding-left: 4px; }
 
     .header-text h1 {
       font-family: 'Courier New', Courier, monospace;
@@ -112,18 +102,14 @@
       font-size: 0.82rem;
     }
 
-    .contact-row a,
-    .contact-row span {
+    .contact-row a {
       color: var(--accent);
       text-decoration: none;
       display: flex;
       align-items: center;
       gap: 5px;
     }
-
-    .contact-row a:hover {
-      text-decoration: underline;
-    }
+    .contact-row a:hover { text-decoration: underline; }
 
     .contact-row .cv-btn {
       background: var(--navy);
@@ -134,31 +120,54 @@
       letter-spacing: 0.04em;
       transition: background 0.2s;
     }
+    .contact-row .cv-btn:hover { background: var(--accent); text-decoration: none; }
 
-    .contact-row .cv-btn:hover {
-      background: var(--accent);
-      text-decoration: none;
-    }
-
-    /* ── CONTROLS ── */
-    .controls {
-      margin: 30px 0;
-      padding: 14px 16px;
-      border: 1px solid var(--light-rule);
-      border-radius: 6px;
-      background: var(--bg);
+    /* ── VIEW TABS ── */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      margin: 32px 0 0;
+      border-bottom: 2px solid var(--light-rule);
       font-family: Arial, sans-serif;
-      font-size: 0.88rem;
     }
 
-    .controls > div + div { margin-top: 10px; }
+    .tab-btn {
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      padding: 8px 20px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: color 0.15s, border-color 0.15s;
+      font-family: Arial, sans-serif;
+    }
 
-    select, button {
+    .tab-btn:hover { color: var(--navy); }
+
+    .tab-btn.active {
+      color: var(--navy);
+      border-bottom-color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* ── SORT ROW ── */
+    .sort-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0 20px;
       font-family: Arial, sans-serif;
       font-size: 0.85rem;
-      padding: 5px 10px;
-      margin-right: 10px;
-      margin-top: 4px;
+      color: var(--muted);
+    }
+
+    .sort-row select {
+      font-family: Arial, sans-serif;
+      font-size: 0.83rem;
+      padding: 4px 8px;
       border: 1px solid #b0bbc8;
       border-radius: 4px;
       background: #fff;
@@ -166,14 +175,19 @@
       cursor: pointer;
     }
 
-    button {
-      background: var(--navy);
-      color: #fff;
-      border-color: var(--navy);
-      transition: background 0.2s;
+    /* ── SECTION HEADINGS within list ── */
+    .section-heading {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border-bottom: 1px solid var(--light-rule);
+      padding-bottom: 5px;
+      margin: 28px 0 14px;
     }
 
-    button:hover { background: var(--accent); border-color: var(--accent); }
+    .section-heading:first-child { margin-top: 4px; }
 
     /* ── PUBLICATIONS ── */
     h3 {
@@ -207,6 +221,9 @@
       margin-bottom: 7px;
     }
 
+    /* Bold author name */
+    .author-me { font-weight: 700; color: var(--navy); }
+
     .tag {
       display: inline-block;
       font-size: 11px;
@@ -232,26 +249,16 @@
       border-radius: 3px;
       transition: background 0.15s, color 0.15s;
     }
+    .links a:hover { background: var(--accent); color: #fff; }
 
-    .links a:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .links a.pdf-link {
-      border-color: #c0392b;
-      color: #c0392b;
-    }
-
-    .links a.pdf-link:hover {
-      background: #c0392b;
-      color: #fff;
-    }
+    .links a.pdf-link { border-color: #c0392b; color: #c0392b; }
+    .links a.pdf-link:hover { background: #c0392b; color: #fff; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 560px) {
       header { flex-direction: column; gap: 18px; }
       .bio { max-width: 100%; }
+      .tab-btn { padding: 8px 12px; font-size: 0.82rem; }
     }
   </style>
 </head>
@@ -291,7 +298,6 @@
         LinkedIn
       </a>
       <a href="https://scholar.google.com/citations?user=BWbrymYAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener">
-        <!-- scholar-style icon -->
         <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2L2 7l8 5 8-5-8-5zM2 12l8 5 8-5M2 9.5l8 5 8-5"/></svg>
         Google Scholar
       </a>
@@ -300,47 +306,32 @@
   </div>
 </header>
 
-<!-- ── CONTROLS ── -->
-<div class="controls">
-  <div>
-    <strong>Sort by:</strong>
-    <select id="sortSelect">
-      <option value="year-desc">Year (new → old)</option>
-      <option value="year-asc">Year (old → new)</option>
-      <option value="alpha-asc">Author (A → Z)</option>
-      <option value="alpha-desc">Author (Z → A)</option>
-    </select>
-  </div>
-
-  <div>
-    <strong>Filter type:</strong>
-    <select id="typeFilter">
-      <option value="all">All</option>
-      <option value="journal">Journal</option>
-      <option value="conference">Conference</option>
-      <option value="technical report">Technical Report</option>
-    </select>
-
-    <strong>Authorship:</strong>
-    <select id="authorFilter">
-      <option value="all">All papers</option>
-      <option value="first">First author only</option>
-      <option value="not-first">Not first author</option>
-    </select>
-
-    <button onclick="render()">Apply</button>
-  </div>
+<!-- ── VIEW TABS ── -->
+<div class="view-tabs">
+  <button class="tab-btn active" onclick="setView('selected')" id="tab-selected">Selected Works</button>
+  <button class="tab-btn" onclick="setView('authorship')" id="tab-authorship">By Authorship</button>
+  <button class="tab-btn" onclick="setView('type')" id="tab-type">By Publication Type</button>
+  <button class="tab-btn" onclick="setView('all')" id="tab-all">All Publications</button>
 </div>
 
-<h3>Publications</h3>
-<div id="list">
-  <p style="font-family:Arial,sans-serif;color:#888;font-size:0.88rem;">
-    Loading publications…
-  </p>
+<!-- ── SORT ROW ── -->
+<div class="sort-row">
+  <label for="sortSelect"><strong>Sort:</strong></label>
+  <select id="sortSelect" onchange="render()">
+    <option value="date-desc">Newest first</option>
+    <option value="date-asc">Oldest first</option>
+    <option value="alpha-asc">Author A → Z</option>
+    <option value="alpha-desc">Author Z → A</option>
+  </select>
 </div>
+
+<div id="list"></div>
 
 <script>
 let publications = [];
+let currentView = 'selected';
+
+const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 async function loadData() {
   try {
@@ -356,76 +347,119 @@ async function loadData() {
 
 loadData();
 
-function isFirstAuthor(authors) {
-  if (!authors) return false;
-  return authors.split(";")[0].toLowerCase().includes("matt, justin");
+function setView(view) {
+  currentView = view;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + view).classList.add('active');
+  render();
 }
 
-function render() {
-  const sortMode  = document.getElementById("sortSelect").value;
-  const typeFilter   = document.getElementById("typeFilter").value;
-  const authorFilter = document.getElementById("authorFilter").value;
+function isFirstAuthor(authors) {
+  if (!authors) return false;
+  const first = authors.split(";")[0].toLowerCase();
+  return first.includes("matt, justin") || first.includes("matt, j");
+}
 
-  let list = [...publications];
-
-  list = list.filter(p => {
-    const type = p.type ? p.type.toLowerCase() : "other";
-    return typeFilter === "all" || type === typeFilter;
-  });
-
-  list = list.filter(p => {
-    const first = isFirstAuthor(p.authors);
-    if (authorFilter === "first") return first;
-    if (authorFilter === "not-first") return !first;
-    return true;
-  });
-
-  list.sort((a, b) => {
-    if (sortMode === "year-desc") return b.year - a.year;
-    if (sortMode === "year-asc")  return a.year - b.year;
+function sortList(list) {
+  const sortMode = document.getElementById("sortSelect").value;
+  return [...list].sort((a, b) => {
+    if (sortMode === "date-desc") {
+      const da = a.year * 100 + (a.month || 0);
+      const db = b.year * 100 + (b.month || 0);
+      return db - da;
+    }
+    if (sortMode === "date-asc") {
+      const da = a.year * 100 + (a.month || 0);
+      const db = b.year * 100 + (b.month || 0);
+      return da - db;
+    }
     if (sortMode === "alpha-asc") return a.authors.localeCompare(b.authors);
     if (sortMode === "alpha-desc") return b.authors.localeCompare(a.authors);
     return 0;
   });
+}
 
-  const container = document.getElementById("list");
-  container.innerHTML = "";
+function boldMyName(authorStr) {
+  if (!authorStr) return "";
+  return authorStr.split(";").map(a => {
+    const trimmed = a.trim();
+    const lower = trimmed.toLowerCase();
+    if (lower.startsWith("matt, justin") || lower.startsWith("matt, j")) {
+      return `<span class="author-me">${trimmed}</span>`;
+    }
+    return trimmed;
+  }).join("; ");
+}
 
-  if (list.length === 0) {
-    container.innerHTML = "<p style='font-family:Arial,sans-serif;color:#888;font-size:0.88rem;'>No publications match the current filters.</p>";
-    return;
+function pubHtml(p) {
+  let venueDetails = p.venue || "";
+  if (p.volume) venueDetails += `, Vol. ${p.volume}`;
+  if (p.number) venueDetails += `, No. ${p.number}`;
+  if (p.pages)  venueDetails += `, pp. ${p.pages}`;
+
+  const dateStr = p.month
+    ? `${MONTH_NAMES[p.month - 1]} ${p.year}`
+    : (p.year || "");
+
+  let linksHtml = "";
+  if (p.pdf || p.doi || p.preprint) {
+    linksHtml = `<div class="links">`;
+    if (p.pdf)      linksHtml += `<a href="pdfs/${p.pdf}" target="_blank" class="pdf-link">PDF (Accepted Manuscript)</a>`;
+    if (p.doi)      linksHtml += `<a href="${p.doi}" target="_blank">Official Publication</a>`;
+    if (p.preprint) linksHtml += `<a href="${p.preprint}" target="_blank">Pre-print</a>`;
+    linksHtml += `</div>`;
   }
 
-  list.forEach(p => {
-    const div = document.createElement("div");
-    div.className = "pub";
-
-    let venueDetails = p.venue || "";
-    if (p.volume) venueDetails += `, Vol. ${p.volume}`;
-    if (p.number) venueDetails += `, No. ${p.number}`;
-    if (p.pages)  venueDetails += `, pp. ${p.pages}`;
-
-    let linksHtml = "";
-    if (p.pdf || p.doi || p.preprint) {
-      linksHtml = `<div class="links">`;
-      if (p.pdf)      linksHtml += `<a href="pdfs/${p.pdf}" target="_blank" class="pdf-link">PDF (Accepted Manuscript)</a>`;
-      if (p.doi)      linksHtml += `<a href="${p.doi}" target="_blank">Official Publication</a>`;
-      if (p.preprint) linksHtml += `<a href="${p.preprint}" target="_blank">Pre-print</a>`;
-      linksHtml += `</div>`;
-    }
-
-    div.innerHTML = `
+  return `
+    <div class="pub">
       <div class="pub-title">${p.title}</div>
       <div class="meta">
-        ${p.authors}<br/>
-        ${venueDetails}${p.year ? " (" + p.year + ")" : ""}
+        ${boldMyName(p.authors)}<br/>
+        ${venueDetails}${dateStr ? " (" + dateStr + ")" : ""}
         <span class="tag">${p.type || "Other"}</span>
       </div>
       ${linksHtml}
-    `;
+    </div>`;
+}
 
-    container.appendChild(div);
-  });
+function renderSection(title, list) {
+  if (list.length === 0) return "";
+  let html = `<div class="section-heading">${title} <span style="font-weight:normal;font-size:0.8em;color:var(--muted)">(${list.length})</span></div>`;
+  list.forEach(p => { html += pubHtml(p); });
+  return html;
+}
+
+function render() {
+  const container = document.getElementById("list");
+  let html = "";
+
+  if (currentView === 'selected') {
+    const selected = sortList(publications.filter(p => p.highlight));
+    const rest = sortList(publications.filter(p => !p.highlight));
+    html += renderSection("Selected Works", selected);
+    html += renderSection("Other Publications", rest);
+
+  } else if (currentView === 'authorship') {
+    const first = sortList(publications.filter(p => isFirstAuthor(p.authors)));
+    const notFirst = sortList(publications.filter(p => !isFirstAuthor(p.authors)));
+    html += renderSection("First Author", first);
+    html += renderSection("Contributing Author", notFirst);
+
+  } else if (currentView === 'type') {
+    const journals = sortList(publications.filter(p => (p.type||"").toLowerCase() === "journal"));
+    const confs    = sortList(publications.filter(p => (p.type||"").toLowerCase() === "conference"));
+    const reports  = sortList(publications.filter(p => (p.type||"").toLowerCase() === "technical report"));
+    const other    = sortList(publications.filter(p => !["journal","conference","technical report"].includes((p.type||"").toLowerCase())));
+    html += renderSection("Journal Articles", journals);
+    html += renderSection("Conference Papers", confs);
+    html += renderSection("Technical Reports", reports);
+    if (other.length) html += renderSection("Other", other);
+
+  } else if (currentView === 'all') {
+    sortList(publications).forEach(p => { html += pubHtml(p); });
+  }
+
+  container.innerHTML = html || "<p style='font-family:Arial,sans-serif;color:#888;font-size:0.88rem;'>No publications found.</p>";
 }
 </script>
 

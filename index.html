@@ -404,7 +404,7 @@ function pubHtml(p) {
   let linksHtml = "";
   if (p.pdf || p.doi || p.preprint) {
     linksHtml = `<div class="links">`;
-    if (p.pdf)      linksHtml += `<a href="pdfs/${p.pdf}" target="_blank" class="pdf-link">PDF (Accepted Manuscript)</a>`;
+    if (p.pdf)      linksHtml += `<a href="pdfs/${p.pdf}" target="_blank" class="pdf-link">PDF</a>`;
     if (p.doi)      linksHtml += `<a href="${p.doi}" target="_blank">Official Publication</a>`;
     if (p.preprint) linksHtml += `<a href="${p.preprint}" target="_blank">Pre-print</a>`;
     linksHtml += `</div>`;

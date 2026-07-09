@@ -175,72 +175,31 @@
       cursor: pointer;
     }
 
-    /* ── SECTION HEADINGS (Classic Academic) ── */
+    /* ── SECTION HEADINGS ── */
     .section-heading {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.4rem;
-      font-weight: normal;
-      font-style: italic;
+      /* Clean, modern sans-serif system stack */
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.3rem;       /* Slightly larger */
+      font-weight: 300;        /* Thin / Light weight */
+      letter-spacing: 0.1em;   /* Gives breathing room to thin, uppercase letters */
+      text-transform: uppercase;
       color: var(--navy);
       text-align: center;
-      border-bottom: 1px solid var(--light-rule);
+      border-bottom: 1px solid var(--light-rule); /* Thin border to match the thin text */
       padding-bottom: 10px;
       margin: 10px 0 24px;
     }
     
     .section-heading:first-child { margin-top: 4px; }
     
-    /* Clean, modern pill for the publication count */
+    /* Parenthetical count styling */
     .section-count {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      font-size: 0.85rem;
-      font-style: normal; /* Prevents it from inheriting the italic */
-      font-weight: 600;
-      color: var(--muted);
-      background-color: var(--bg);
-      border: 1px solid var(--light-rule);
-      border-radius: 12px;
-      padding: 2px 10px;
-      margin-left: 8px;
-      vertical-align: middle;
-      letter-spacing: normal;
+      font-size: 1rem;         /* Slightly smaller than the heading text */
+      font-weight: 300;        /* Matches the thin weight of the header */
+      color: var(--muted);     /* Softer slate/gray color */
+      letter-spacing: normal;  /* Removes the wide spacing just for the number */
       text-transform: none;
-    }
-
-        /* ── SECTION HEADINGS v2 (Crisp Modern Sans) ── */
-    .section-heading2 {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: var(--navy);
-      text-align: center;
-      border-bottom: 2px solid var(--navy); /* Bolder border to ground the section */
-      padding-bottom: 10px;
-      margin: 10px 0 24px;
-    }
-    
-    .section-heading2:first-child { margin-top: 4px; }
-    
-    /* Clean, modern pill for the publication count */
-    .section-count2 {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: inherit;
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--slate);
-      background-color: #eef0f3;
-      border-radius: 12px;
-      padding: 2px 8px;
-      margin-left: 8px;
-      vertical-align: text-bottom;
-      letter-spacing: normal;
+      margin-left: 6px;
     }
     
     /* New container class for spacing between sections */
@@ -485,8 +444,8 @@ function renderSection(title, list) {
   if (list.length === 0) return "";
   
   let html = `<div class="pub-section">`;
-  // Using a new .section-count class instead of inline styles
-  html += `<div class="section-heading">${title} <span class="section-count">${list.length}</span></div>`;
+  // Parentheses added back inside the span
+  html += `<div class="section-heading">${title} <span class="section-count">(${list.length})</span></div>`;
   list.forEach(p => { html += pubHtml(p); });
   html += `</div>`; 
   

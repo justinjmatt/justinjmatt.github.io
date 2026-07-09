@@ -178,16 +178,22 @@
     /* ── SECTION HEADINGS within list ── */
     .section-heading {
       font-family: 'Courier New', Courier, monospace;
-      font-size: 0.85rem;
+      font-size: 1.1rem; /* Increased size */
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--slate);
-      border-bottom: 1px solid var(--light-rule);
-      padding-bottom: 5px;
-      margin: 28px 0 14px;
+      color: var(--navy); /* Changed from slate to navy for higher contrast */
+      text-align: center; /* Centered text */
+      border-bottom: 2px solid var(--light-rule); /* Slightly thicker border */
+      padding-bottom: 8px;
+      margin: 10px 0 20px;
     }
-
+    
     .section-heading:first-child { margin-top: 4px; }
+    
+    /* New container class for spacing between sections */
+    .pub-section {
+      margin-bottom: 50px; /* Adds generous white space at the end of each section */
+    }
 
     /* ── PUBLICATIONS ── */
     h3 {
@@ -424,8 +430,13 @@ function pubHtml(p) {
 
 function renderSection(title, list) {
   if (list.length === 0) return "";
-  let html = `<div class="section-heading">${title} <span style="font-weight:normal;font-size:0.8em;color:var(--muted)">(${list.length})</span></div>`;
+  
+  // Wrap the section in our new .pub-section div
+  let html = `<div class="pub-section">`;
+  html += `<div class="section-heading">${title} <span style="font-weight:normal;font-size:0.8em;color:var(--muted)">(${list.length})</span></div>`;
   list.forEach(p => { html += pubHtml(p); });
+  html += `</div>`; // Close the wrapper
+  
   return html;
 }
 

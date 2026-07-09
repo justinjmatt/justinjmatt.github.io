@@ -179,9 +179,9 @@
     .section-heading {
       /* Clean, modern sans-serif system stack */
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      font-size: 1.3rem;       /* Slightly larger */
+      font-size: 1.25rem;       /* Slightly larger */
       font-weight: 300;        /* Thin / Light weight */
-      letter-spacing: 0.1em;   /* Gives breathing room to thin, uppercase letters */
+      letter-spacing: 0.06em;   /* Gives breathing room to thin, uppercase letters */
       text-transform: uppercase;
       color: var(--navy);
       text-align: center;
@@ -199,7 +199,10 @@
       color: var(--muted);     /* Softer slate/gray color */
       letter-spacing: normal;  /* Removes the wide spacing just for the number */
       text-transform: none;
-      margin-left: 6px;
+      margin-left: 6px;    
+      vertical-align: middle;
+      position: relative;
+      bottom: 4px;
     }
     
     /* New container class for spacing between sections */

@@ -175,20 +175,73 @@
       cursor: pointer;
     }
 
-    /* ── SECTION HEADINGS within list ── */
+    /* ── SECTION HEADINGS (Classic Academic) ── */
     .section-heading {
-      font-family: Arial, sans-serif;
-      font-size: 1.1rem; /* Increased size */
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--navy); /* Changed from slate to navy for higher contrast */
-      text-align: center; /* Centered text */
-      border-bottom: 2px solid var(--light-rule); /* Slightly thicker border */
-      padding-bottom: 8px;
-      margin: 10px 0 20px;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.4rem;
+      font-weight: normal;
+      font-style: italic;
+      color: var(--navy);
+      text-align: center;
+      border-bottom: 1px solid var(--light-rule);
+      padding-bottom: 10px;
+      margin: 10px 0 24px;
     }
     
     .section-heading:first-child { margin-top: 4px; }
+    
+    /* Clean, modern pill for the publication count */
+    .section-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 0.85rem;
+      font-style: normal; /* Prevents it from inheriting the italic */
+      font-weight: 600;
+      color: var(--muted);
+      background-color: var(--bg);
+      border: 1px solid var(--light-rule);
+      border-radius: 12px;
+      padding: 2px 10px;
+      margin-left: 8px;
+      vertical-align: middle;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+
+        /* ── SECTION HEADINGS v2 (Crisp Modern Sans) ── */
+    .section-heading2 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--navy);
+      text-align: center;
+      border-bottom: 2px solid var(--navy); /* Bolder border to ground the section */
+      padding-bottom: 10px;
+      margin: 10px 0 24px;
+    }
+    
+    .section-heading2:first-child { margin-top: 4px; }
+    
+    /* Clean, modern pill for the publication count */
+    .section-count2 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--slate);
+      background-color: #eef0f3;
+      border-radius: 12px;
+      padding: 2px 8px;
+      margin-left: 8px;
+      vertical-align: text-bottom;
+      letter-spacing: normal;
+    }
     
     /* New container class for spacing between sections */
     .pub-section {
@@ -431,11 +484,11 @@ function pubHtml(p) {
 function renderSection(title, list) {
   if (list.length === 0) return "";
   
-  // Wrap the section in our new .pub-section div
   let html = `<div class="pub-section">`;
-  html += `<div class="section-heading">${title} <span style="font-weight:normal;font-size:0.8em;color:var(--muted)">(${list.length})</span></div>`;
+  // Using a new .section-count class instead of inline styles
+  html += `<div class="section-heading">${title} <span class="section-count">${list.length}</span></div>`;
   list.forEach(p => { html += pubHtml(p); });
-  html += `</div>`; // Close the wrapper
+  html += `</div>`; 
   
   return html;
 }

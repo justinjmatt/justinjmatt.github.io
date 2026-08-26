@@ -257,6 +257,17 @@
       font-family: Arial, sans-serif;
     }
 
+    /* Type-specific tag colors */
+    .tag.journal { 
+      background: #DFD0F4; 
+    }
+    .tag.conference { 
+      background: #F8EDAE; 
+    }
+    .tag.technical-report { 
+      background: #D9F2D0; 
+    }
+
     .links a {
       display: inline-block;
       font-family: Arial, sans-serif;
@@ -422,13 +433,25 @@ function pubHtml(p) {
     ? `${MONTH_NAMES[p.month - 1]} ${p.year}`
     : (p.year || "");
 
+  // 1. Pre-print logic: Only show pre-print if a PDF is NOT available
   let linksHtml = "";
   if (p.pdf || p.doi || p.preprint) {
     linksHtml = `<div class="links">`;
     if (p.pdf)      linksHtml += `<a href="pdfs/${p.pdf}" target="_blank" class="pdf-link">PDF</a>`;
     if (p.doi)      linksHtml += `<a href="${p.doi}" target="_blank">Official Publication</a>`;
-    if (p.preprint) linksHtml += `<a href="${p.preprint}" target="_blank">Pre-print</a>`;
+    if (p.preprint && !p.pdf) linksHtml += `<a href="${p.preprint}" target="_blank">Pre-print</a>`;
     linksHtml += `</div>`;
+  }
+
+  // 2. Color-coding logic: Match the publication type to the new CSS classes
+  let typeClass = "";
+  const typeLower = (p.type || "").toLowerCase();
+  if (typeLower === "journal") {
+    typeClass = "journal";
+  } else if (typeLower === "conference") {
+    typeClass = "conference";
+  } else if (typeLower === "technical report") {
+    typeClass = "technical-report";
   }
 
   return `
@@ -437,7 +460,7 @@ function pubHtml(p) {
       <div class="meta">
         ${boldMyName(p.authors)}<br/>
         ${venueDetails}${dateStr ? " (" + dateStr + ")" : ""}
-        <span class="tag">${p.type || "Other"}</span>
+        <span class="tag ${typeClass}">${p.type || "Other"}</span>
       </div>
       ${linksHtml}
     </div>`;
